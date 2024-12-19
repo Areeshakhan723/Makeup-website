@@ -42,7 +42,7 @@ const Footer = () => {
           </div>
 
           <p className="text">
-            By clicking "submit," you agree to receive emails from Beauty <br />
+            By clicking {`submit,`} you agree to receive emails from Beauty <br />
             Cosmetics and accept our web terms of use and privacy and <br />
             cookie policy. *Terms apply.
           </p>

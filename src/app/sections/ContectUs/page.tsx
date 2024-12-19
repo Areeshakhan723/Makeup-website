@@ -10,8 +10,8 @@ const page = () => {
             Contect Us
           </h1>
           <p className="text-center mt-3 font-sans">
-            Feel free to reach out to us with any questions, feedback, or
-            inquiries. We're here to hel
+            {`Feel free to reach out to us with any questions, feedback, or
+            inquiries. We're here to hel`}
           </p>
 
           <div className="mt-10 w-full">
@@ -20,19 +20,19 @@ const page = () => {
                 type="text"
                 placeholder="Your name"
                 required
-                className="border-b-2 border-[#EB89B5] outline-none p-3 m-1 w-full sm:w-[350px]"
+                className="border-b-2 border-primaryPink outline-none p-3 m-1 w-full sm:w-[350px]"
               />
               <input
                 type="text"
                 placeholder="Your Mail"
                 required
-                className="border-b-2 border-[#EB89B5] outline-none w-full p-3 m-1 sm:w-[350px]"
+                className="border-b-2 border-primaryPink outline-none w-full p-3 m-1 sm:w-[350px]"
               />
               <input
                 type="text"
                 placeholder="Your Message"
                 required
-                className="border-b-2 border-[#EB89B5] outline-none w-full p-3 m-1 sm:w-[350px]"
+                className="border-b-2 border-primaryPink outline-none w-full p-3 m-1 sm:w-[350px]"
               />
 
               <div className="mt-5">

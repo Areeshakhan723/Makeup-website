@@ -50,7 +50,7 @@ import skinCare5 from "./skinCare5.jpeg";
 import skinCare6 from "./skinCare6.jpeg";
 import skinCare7 from "./skinCare7.jpeg";
 import skinCare8 from "./skinCare8.jpeg"
-import handCare1 from "./handcare1.jpeg";
+import handCare1 from "./handCare1.jpeg";
 import handCare2 from "./handCare2.jpeg";
 import handCare3 from "./handCare3.jpeg";
 import handCare4 from "./handCare4.jpeg";
@@ -66,7 +66,7 @@ import bodyCare5 from "./bodyCare5.jpeg";
 import bodyCare6 from "./bodyCare6.jpeg";
 import bodyCare7 from "./bodyCare7.jpeg";
 import bodyCare8 from "./bodyCare8.jpeg";
-import hairCare1 from "./Haircare1.jpeg";
+import hairCare1 from "./haircare1.jpeg";
 import hairCare2 from "./hairCare2.jpeg";
 import hairCare3 from "./hairCare3.jpg";
 import hairCare4 from "./hairCare4.jpeg";
