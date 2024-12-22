@@ -1,12 +1,18 @@
-// Cart/page.tsx
 "use client";
 
 import { useCart } from "../../context/CartContaxt";
 import Image from "next/image";
+import trash from "@/app/assets/icons/trash.svg";
+import Link from "next/link";
 const Page = () => {
-  const { cartItems, getSubTotal } = useCart();
+  const { cartItems, getSubTotal, removeFromCart } = useCart();
+
+  const handleRemove = (itemName: string) => {
+    removeFromCart(itemName);
+  };
   return (
     <>
+      {}
       <div className="max-container padding w-full">
         <div className="bg-white p-4">
           <h1 className="text-start text-black text-[30px] text-sm[24px] font-semibold">
@@ -47,11 +53,22 @@ const Page = () => {
                       </div>
                     </div>
                   </div>
-
-                  <div className="max-md:hidden max-lg:block">
-                    <p className="bg-[rgb(226,223,223)] text-center lg:px-7 mr-52">
-                      {items.quantity}
-                    </p>
+                  <div className="flex lg:px-7 mr-52">
+                    <div className="max-md:hidden max-lg:block">
+                      <p className="bg-[rgb(226,223,223)] px-5 text-center ">
+                        {items.quantity}
+                      </p>
+                    </div>
+                    <div>
+                      <Image
+                        src={trash}
+                        alt="delete icon"
+                        width={24}
+                        height={24}
+                        onClick={() => handleRemove(items.name)} // Delete the item when clicked
+                        className="cursor-pointer"
+                      />
+                    </div>
                   </div>
                   <div className="max-md:hidden max-lg:block">
                     <p className="text-center">{items.price}</p>
@@ -78,7 +95,7 @@ const Page = () => {
                 </div>
                 <div>
                   <button className="bg-primaryPink text-center text-sm font-medium text-secondary px-5 py-4">
-                    Go to checkout
+                    <Link href="/sections/Payment">Go to checkout</Link>
                   </button>
                 </div>
               </div>

@@ -8,6 +8,7 @@ import { Footer } from "./sections";
 import { ReactNode } from "react";
 import CartProvider from "./context/CartContaxt";
 import Topbar from "./component/Topbar";
+import { BuyProvider } from "./context/BuyContext";
 
 export const metadata: Metadata = {
   title: "Created Makeup website",
@@ -21,7 +22,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <Topbar />
         <Nav />
         <ToastContainer />
-        <CartProvider>{children}</CartProvider>
+        <BuyProvider>
+          <CartProvider>{children}</CartProvider>
+        </BuyProvider>
         <section className="padding-x padding-l bg-[#EB89B5] padding-t">
           <Footer />
         </section>

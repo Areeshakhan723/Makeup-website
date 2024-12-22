@@ -1,28 +1,29 @@
 "use client";
+
 import { StaticImageData } from "next/image";
 import { useContext, createContext, useState, ReactNode } from "react";
 
-type CartItem = {
+type BuyItem = {
   img: string | StaticImageData;
   name: string;
   price: number | string;
   quantity: number;
+  description:string;
 };
 
-type CartType = {
-  cartItems: CartItem[];
-  addToCart: (item: CartItem) => void;
+type BuyType = {
+  cartItems: BuyItem[];
+  addToCart: (item: BuyItem) => void;
   getSubTotal: () => number;
-  removeFromCart: (itemName: string) => void;
 };
 
-const CartContext = createContext<CartType | undefined>(undefined);
+const BuyContext = createContext<BuyType | undefined>(undefined);
 
-export const CartProvider = ({ children }: { children: ReactNode }) => {
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+export const BuyProvider = ({ children }: { children: ReactNode }) => {
+  const [cartItems, setCartItems] = useState<BuyItem[]>([]);
 
   // addede product function
-  const addToCart = (item: CartItem) => {
+  const addToCart = (item: BuyItem) => {
     console.log("Cart Items:", cartItems);
 
     setCartItems((prevItems) => {
@@ -52,28 +53,19 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     return isNaN(total) ? 0 : total;
   };
 
-  // Remove Product
-  const removeFromCart = (itemName: string) => {
-    setCartItems((prevItems) =>
-      prevItems.filter((item) => item.name !== itemName)
-    );
-  };
-
   return (
-    <CartContext.Provider
-      value={{ cartItems, addToCart, getSubTotal, removeFromCart }}
-    >
+    <BuyContext.Provider value={{ cartItems, addToCart, getSubTotal }}>
       {children}
-    </CartContext.Provider>
+    </BuyContext.Provider>
   );
 };
 
 export const useCart = () => {
-  const context = useContext(CartContext);
+  const context = useContext(BuyContext);
   if (!context) {
-    throw new Error("useCart must be used within a CartProvider");
+    throw new Error("useCart must be used within a BuyProvider");
   }
   return context;
 };
 
-export default CartProvider;
+export default BuyContext;

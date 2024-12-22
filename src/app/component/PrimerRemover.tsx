@@ -1,6 +1,5 @@
 import Image, { StaticImageData } from "next/image";
-import { Buttons } from "./index";
-import { buy } from "../assets/icons";
+import BuyNow from "./BuyNow";
 
 interface ProductType {
   imgURL: string | StaticImageData;
@@ -31,10 +30,16 @@ const PrimerRemover = ({ imgURL, name, description, price }: ProductType) => {
         </div>
         <p className="font-sans text-sm leading-normal">{price}</p>
       </div>
-
-      {/* Buttons */}
-      <div className="flex mt-2 flex-row md:flex-col lg:flex-col xl:flex-col md:px-0.5">
-        <Buttons label={"Buy it Now"} iconURL={buy} />
+      {/* Buy Now component */}
+      <div className="mt-10">
+        <BuyNow
+          product={{
+            img: imgURL,
+            name: name,
+            price: price,
+            description: description,
+          }}
+        />
       </div>
     </div>
   );

@@ -1,6 +1,5 @@
-import { Buttons } from "./index";
 import Image, { StaticImageData } from "next/image";
-import { buy } from "../assets/icons";
+import BuyNow from "./BuyNow";
 
 interface Card {
   imgURL: string | StaticImageData;
@@ -35,8 +34,16 @@ const LinerCard = ({ imgURL, name, description, price }: Card) => {
           <p className="font-sans text-sm leading-normal">{price}</p>
         </div>
 
-        <div className="flex mt-2 flex-row md:flex-col lg:flex-col xl:flex-col md:px-0.5 w-full max-w-xs">
-          <Buttons label={"Buy it Now"} iconURL={buy} />
+        {/* Buy Now component */}
+        <div className="mt-10">
+          <BuyNow
+            product={{
+              img: imgURL,
+              name: name,
+              price: price,
+              description: description,
+            }}
+          />
         </div>
       </div>
     </>
